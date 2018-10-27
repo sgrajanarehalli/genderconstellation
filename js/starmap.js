@@ -2,6 +2,7 @@ var spread_slider;
 var number_slider;
 var color_slider;
 var glow_slider;
+var rotate_checkbox;
 var stars = [];
 
 function setup() {
@@ -29,6 +30,10 @@ function draw() {
     var color_shift= color_slider.value();
     var glow= glow_slider.value();
 
+    if (rotate_checkbox.checked()){
+        rotateY(frameCount * 0.01);
+    }
+    
     for (var i = 0; i < num_stars; i++) {
       var position={};
       position.x= random(-768, 768);
@@ -53,8 +58,6 @@ function draw() {
       pop();
     }
 
-    if (rotate_checkbox.checked()){
-        rotateY(frameCount * 0.01);
-    }
+
     orbitControl();
 }
